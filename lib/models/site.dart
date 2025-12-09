@@ -24,6 +24,7 @@ class Site {
   final String? partnerId;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final double? distance; // Distance en kilomètres par rapport à l'utilisateur
 
   const Site({
     required this.id,
@@ -46,6 +47,7 @@ class Site {
     this.partnerId,
     required this.createdAt,
     required this.updatedAt,
+    this.distance,
   });
 
   factory Site.fromJson(Map<String, dynamic> json) => _$SiteFromJson(json);
@@ -73,6 +75,7 @@ class Site {
     String? partnerId,
     DateTime? createdAt,
     DateTime? updatedAt,
+    double? distance,
   }) {
     return Site(
       id: id ?? this.id,
@@ -95,7 +98,17 @@ class Site {
       partnerId: partnerId ?? this.partnerId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      distance: distance ?? this.distance,
     );
+  }
+
+  /// Formate la distance pour un affichage convivial
+  String get formattedDistance {
+    if (distance == null) return '';
+    if (distance! < 1) {
+      return '${(distance! * 1000).toInt()}m';
+    }
+    return '${distance!.toStringAsFixed(1)}km';
   }
 }
 

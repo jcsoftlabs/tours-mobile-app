@@ -29,6 +29,7 @@ Site _$SiteFromJson(Map<String, dynamic> json) => Site(
   partnerId: json['partnerId'] as String?,
   createdAt: DateTime.parse(json['createdAt'] as String),
   updatedAt: DateTime.parse(json['updatedAt'] as String),
+  distance: (json['distance'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic> _$SiteToJson(Site instance) => <String, dynamic>{
@@ -52,6 +53,7 @@ Map<String, dynamic> _$SiteToJson(Site instance) => <String, dynamic>{
   'partnerId': instance.partnerId,
   'createdAt': instance.createdAt.toIso8601String(),
   'updatedAt': instance.updatedAt.toIso8601String(),
+  'distance': instance.distance,
 };
 
 SiteResponse _$SiteResponseFromJson(Map<String, dynamic> json) => SiteResponse(

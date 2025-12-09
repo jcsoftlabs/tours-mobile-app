@@ -600,9 +600,11 @@ class _EstablishmentDetailScreenState
               backgroundColor: Theme.of(context).primaryColor,
             ),
             const SizedBox(width: 8),
-            if (_establishment!.priceRange != null)
+            // Afficher le prix uniquement pour les hôtels
+            if (_establishment!.type.toUpperCase() == 'HOTEL' && 
+                _establishment!.priceRange != null)
               Chip(
-                label: Text(_establishment!.priceRange!),
+                label: Text(_establishment!.formattedPrice),
                 backgroundColor: Colors.green,
                 labelStyle: const TextStyle(color: Colors.white),
               ),

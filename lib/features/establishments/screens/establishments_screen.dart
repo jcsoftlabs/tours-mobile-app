@@ -8,6 +8,7 @@ import '../../../models/establishment.dart';
 import '../../../services/establishment_service.dart';
 import '../../../widgets/establishment_card.dart';
 import '../../../widgets/interactive_map.dart';
+import '../../../core/network/error_handler.dart';
 
 class EstablishmentsScreen extends ConsumerStatefulWidget {
   const EstablishmentsScreen({super.key});
@@ -71,8 +72,9 @@ class _EstablishmentsScreenState extends ConsumerState<EstablishmentsScreen> {
     } catch (e) {
       if (!mounted) return;
       
+      // Utiliser ErrorHandler pour obtenir un message sécurisé
       setState(() {
-        _error = e.toString();
+        _error = ErrorHandler.getUserFriendlyMessage(e, context: 'Erreur lors de la récupération des établissements');
         _isLoading = false;
       });
     }

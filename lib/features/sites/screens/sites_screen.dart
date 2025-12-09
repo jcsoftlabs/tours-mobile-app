@@ -6,6 +6,7 @@ import '../../../models/site.dart';
 import '../../../services/sites_service.dart';
 import '../../../widgets/site_card.dart';
 import '../../../widgets/interactive_map.dart';
+import '../../../core/network/error_handler.dart';
 
 class SitesScreen extends ConsumerStatefulWidget {
   const SitesScreen({super.key});
@@ -63,8 +64,9 @@ class _SitesScreenState extends ConsumerState<SitesScreen> {
         _isLoading = false;
       });
     } catch (e) {
+      // Utiliser ErrorHandler pour obtenir un message sécurisé
       setState(() {
-        _error = e.toString();
+        _error = ErrorHandler.getUserFriendlyMessage(e, context: 'Erreur lors du chargement des sites');
         _isLoading = false;
       });
     }

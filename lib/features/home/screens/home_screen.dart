@@ -9,6 +9,7 @@ import '../../../models/establishment.dart';
 import '../../../widgets/category_card.dart';
 import '../../../widgets/establishment_card.dart';
 import '../../../services/search_service.dart';
+import '../../../core/utils/ui_helpers.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -87,9 +88,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       setState(() => _featuredEstablishments = establishments);
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${'common.error'.tr()}: $e')),
-        );
+        // Afficher un message d'erreur sécurisé
+        UiHelpers.showErrorSnackBar(context, e);
       }
     } finally {
       setState(() => _isLoading = false);

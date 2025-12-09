@@ -133,4 +133,20 @@ class Establishment {
     }
     return '${distance!.toStringAsFixed(1)}km';
   }
+
+  /// Formate le prix pour un affichage convivial
+  String get formattedPrice {
+    if (priceRange == null || priceRange!.isEmpty) return '';
+    
+    // Pour les hôtels, afficher "À partir de X$/Jour"
+    if (type.toUpperCase() == 'HOTEL') {
+      // Convertir € en $ (approximation simple)
+      final euroCount = priceRange!.replaceAll(RegExp(r'[^€]'), '').length;
+      final priceEstimate = euroCount * 50; // €: 50$, €€: 100$, €€€: 150$, etc.
+      return 'À partir de $priceEstimate\$/Jour';
+    }
+    
+    // Pour les autres types, remplacer € par $
+    return priceRange!.replaceAll('€', '\$');
+  }
 }

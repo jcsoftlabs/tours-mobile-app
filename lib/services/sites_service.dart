@@ -1,9 +1,11 @@
 import '../core/network/api_service.dart';
 import '../core/constants/api_constants.dart';
 import '../models/site.dart';
+import 'location_service.dart';
 
 class SitesService {
   final ApiService _apiService = ApiService();
+  final LocationService _locationService = LocationService();
 
   // Helper methods for safe parsing
   String _safeParseString(dynamic value) {
@@ -65,8 +67,22 @@ class SitesService {
   }
 
   // Parse Site from API response
-  Site _parseSite(dynamic siteData) {
+  Site _parseSite(dynamic siteData, {double? userLatitude, double? userLongitude}) {
     final map = siteData as Map<String, dynamic>;
+    
+    // Calculer la distance si la position de l'utilisateur est fournie
+    double? distance;
+    final siteLat = _safeParseDouble(map['latitude']);
+    final siteLon = _safeParseDouble(map['longitude']);
+    
+    if (userLatitude != null && userLongitude != null && siteLat != 0.0 && siteLon != 0.0) {
+      distance = _locationService.calculateDistance(
+        userLatitude, userLongitude,
+        siteLat, siteLon,
+      );
+    } else if (map['distance'] != null) {
+      distance = _safeParseDouble(map['distance']);
+    }
     
     return Site(
       id: _safeParseString(map['id']),
@@ -78,8 +94,8 @@ class SitesService {
       phone: map['phone']?.toString(),
       email: map['email']?.toString(),
       website: map['website']?.toString(),
-      latitude: _safeParseDouble(map['latitude']),
-      longitude: _safeParseDouble(map['longitude']),
+      latitude: siteLat,
+      longitude: siteLon,
       amenities: _parseStringList(map['amenities']),
       schedule: map['schedule'] != null ? _parseMap(map['schedule']) : null,
       pricing: map['pricing'] != null ? _parseMap(map['pricing']) : null,
@@ -87,17 +103,31 @@ class SitesService {
       partnerId: map['partnerId']?.toString(),
       createdAt: _parseDateTime(map['createdAt']),
       updatedAt: _parseDateTime(map['updatedAt']),
+      distance: distance,
     );
   }
 
-  // Récupérer tous les sites
+  // Récupérer tous les sites avec calcul de distance
   Future<List<Site>> getSites({
     int page = 1,
     int limit = 20,
     String? type,
     String? search,
+    bool includeDistance = true,
   }) async {
     try {
+      // Récupérer la position de l'utilisateur si demandé
+      double? userLat;
+      double? userLon;
+      
+      if (includeDistance) {
+        final position = await _locationService.getCurrentLocation();
+        if (position != null) {
+          userLat = position.latitude;
+          userLon = position.longitude;
+        }
+      }
+      
       final queryParams = <String, dynamic>{
         'page': page,
         'limit': limit,
@@ -120,7 +150,23 @@ class SitesService {
 
       if (response.data['success'] == true) {
         final sitesData = response.data['data'] as List;
-        return sitesData.map((siteData) => _parseSite(siteData)).toList();
+        final sites = sitesData.map((siteData) => _parseSite(
+          siteData,
+          userLatitude: userLat,
+          userLongitude: userLon,
+        )).toList();
+        
+        // Trier par distance si disponible
+        if (userLat != null && userLon != null) {
+          sites.sort((a, b) {
+            if (a.distance == null && b.distance == null) return 0;
+            if (a.distance == null) return 1;
+            if (b.distance == null) return -1;
+            return a.distance!.compareTo(b.distance!);
+          });
+        }
+        
+        return sites;
       } else {
         throw Exception(response.data['error'] ?? 'Erreur lors du chargement des sites');
       }

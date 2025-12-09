@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../providers/auth_provider.dart';
+import '../../../core/utils/ui_helpers.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -40,21 +41,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       if (mounted) {
         // Rediriger vers l'écran principal
         context.go('/');
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Connexion réussie !'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        UiHelpers.showSuccessSnackBar(context, 'Connexion réussie !');
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(e.toString()),
-            backgroundColor: Colors.red,
-          ),
-        );
+        // Affiche un message d'erreur sécurisé qui masque les URLs et détails techniques
+        UiHelpers.showErrorSnackBar(context, e);
       }
     } finally {
       if (mounted) {
@@ -71,21 +63,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
       if (mounted) {
         context.go('/');
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Connexion Google réussie !'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        UiHelpers.showSuccessSnackBar(context, 'Connexion Google réussie !');
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(e.toString()),
-            backgroundColor: Colors.red,
-          ),
-        );
+        // Affiche un message d'erreur sécurisé
+        UiHelpers.showErrorSnackBar(context, e);
       }
     } finally {
       if (mounted) {

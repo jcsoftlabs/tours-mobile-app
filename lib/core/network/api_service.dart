@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import '../constants/api_constants.dart';
+import 'error_handler.dart';
 
 class ApiService {
   static final ApiService _instance = ApiService._internal();
@@ -40,7 +41,8 @@ class ApiService {
           handler.next(options);
         },
         onError: (error, handler) {
-          _logger.e('API Error: ${error.message}');
+          // Log l'erreur complète pour le débogage (ne sera pas visible par l'utilisateur)
+          ErrorHandler.logError(error, context: 'API Request');
           handler.next(error);
         },
       ),
@@ -66,8 +68,8 @@ class ApiService {
         options: options,
       );
       return response;
-    } catch (e) {
-      _logger.e('GET Error: $e');
+    } catch (e, stackTrace) {
+      ErrorHandler.logError(e, stackTrace: stackTrace, context: 'GET $path');
       rethrow;
     }
   }
@@ -87,8 +89,8 @@ class ApiService {
         options: options,
       );
       return response;
-    } catch (e) {
-      _logger.e('POST Error: $e');
+    } catch (e, stackTrace) {
+      ErrorHandler.logError(e, stackTrace: stackTrace, context: 'POST $path');
       rethrow;
     }
   }
@@ -108,8 +110,8 @@ class ApiService {
         options: options,
       );
       return response;
-    } catch (e) {
-      _logger.e('PUT Error: $e');
+    } catch (e, stackTrace) {
+      ErrorHandler.logError(e, stackTrace: stackTrace, context: 'PUT $path');
       rethrow;
     }
   }
@@ -129,8 +131,29 @@ class ApiService {
         options: options,
       );
       return response;
-    } catch (e) {
-      _logger.e('DELETE Error: $e');
+    } catch (e, stackTrace) {
+      ErrorHandler.logError(e, stackTrace: stackTrace, context: 'DELETE $path');
+      rethrow;
+    }
+  }
+
+  // PATCH Request
+  Future<Response> patch(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
+    try {
+      final response = await _dio.patch(
+        path,
+        data: data,
+        queryParameters: queryParameters,
+        options: options,
+      );
+      return response;
+    } catch (e, stackTrace) {
+      ErrorHandler.logError(e, stackTrace: stackTrace, context: 'PATCH $path');
       rethrow;
     }
   }

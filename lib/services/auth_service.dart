@@ -7,6 +7,7 @@ import 'dart:io' show Platform;
 import '../core/network/api_service.dart';
 import '../core/constants/api_constants.dart';
 import '../core/config/oauth_config.dart';
+import '../core/network/error_handler.dart';
 import '../models/user.dart';
 
 class AuthService {
@@ -389,28 +390,10 @@ class AuthService {
   }
 
   // Gestion des erreurs d'authentification
+  // Utilise ErrorHandler pour masquer les informations sensibles
   Exception _handleAuthError(dynamic error) {
-    if (error is DioException) {
-      final response = error.response;
-      if (response != null) {
-        final message = response.data['message'] ?? response.data['error'] ?? 'Erreur d\'authentification';
-        switch (response.statusCode) {
-          case 400:
-            return Exception('Données invalides: $message');
-          case 401:
-            return Exception('Identifiants incorrects');
-          case 409:
-            return Exception('Un compte existe déjà avec cet email');
-          case 422:
-            return Exception('Données de validation invalides: $message');
-          case 500:
-            return Exception('Erreur serveur. Veuillez réessayer plus tard.');
-          default:
-            return Exception(message);
-        }
-      }
-      return Exception('Erreur de connexion. Vérifiez votre connexion internet.');
-    }
-    return Exception('Une erreur inattendue s\'est produite');
+    ErrorHandler.logError(error, context: 'AuthService');
+    final userMessage = ErrorHandler.getUserFriendlyMessage(error);
+    return Exception(userMessage);
   }
 }

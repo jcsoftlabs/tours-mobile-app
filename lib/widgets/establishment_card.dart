@@ -226,12 +226,15 @@ class _EstablishmentCardState extends State<EstablishmentCard> {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      if (widget.establishment.priceRange != null)
+                      // Afficher le prix uniquement pour les hôtels
+                      if (widget.establishment.type.toUpperCase() == 'HOTEL' && 
+                          widget.establishment.priceRange != null)
                         Text(
-                          widget.establishment.priceRange!,
+                          widget.establishment.formattedPrice,
                           style: TextStyle(
                             color: Colors.green[700],
                             fontWeight: FontWeight.bold,
+                            fontSize: 13,
                           ),
                         ),
                     ],
