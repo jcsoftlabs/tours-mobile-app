@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../models/user.dart';
 import '../../../providers/auth_provider.dart';
 import '../../../providers/theme_provider.dart';
+import '../../../screens/privacy_policy_screen.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
@@ -88,6 +90,88 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ),
       );
     }
+  }
+
+  Future<void> _launchEmail(String email, {String? subject, String? body}) async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: _encodeQueryParameters(<String, String>{
+        if (subject != null) 'subject': subject,
+        if (body != null) 'body': body,
+      }),
+    );
+
+    try {
+      // Essayer d'ouvrir l'application email
+      final bool canLaunch = await canLaunchUrl(emailUri);
+      
+      if (canLaunch) {
+        await launchUrl(emailUri);
+      } else {
+        // Si pas de client email, afficher une boîte de dialogue avec les infos
+        if (mounted) {
+          _showEmailFallbackDialog(email, subject: subject, body: body);
+        }
+      }
+    } catch (e) {
+      // En cas d'erreur, afficher aussi la boîte de dialogue de fallback
+      if (mounted) {
+        _showEmailFallbackDialog(email, subject: subject, body: body);
+      }
+    }
+  }
+
+  void _showEmailFallbackDialog(String email, {String? subject, String? body}) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Contactez-nous'),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Impossible d\'ouvrir l\'application email. Vous pouvez nous contacter directement à :',
+                style: TextStyle(fontSize: 14),
+              ),
+              const SizedBox(height: 16),
+              SelectableText(
+                email,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+              if (subject != null) ...[
+                const SizedBox(height: 16),
+                const Text(
+                  'Objet :',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 4),
+                SelectableText(subject),
+              ],
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Fermer'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String? _encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
   }
 
   void _showLanguageDialog() {
@@ -458,28 +542,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             child: Column(
               children: [
                 ListTile(
-                  leading: const Icon(Icons.help),
-                  title: Text('profile.help_center'.tr()),
-                  trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    // TODO: Ouvrir le centre d'aide
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('profile.coming_soon'.tr()),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
                   leading: const Icon(Icons.feedback),
                   title: Text('profile.send_feedback'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Ouvrir le formulaire de feedback
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('profile.coming_soon'.tr()),
-                      ),
+                    _launchEmail(
+                      'mdt@tourisme.gov.ht',
+                      subject: 'Commentaires sur l\'application Touris',
                     );
                   },
                 ),
@@ -488,12 +557,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   title: Text('profile.contact_us'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Ouvrir les contacts
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('profile.coming_soon'.tr()),
-                      ),
-                    );
+                    _launchEmail('mdt@tourisme.gov.ht');
                   },
                 ),
               ],
@@ -511,15 +575,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   title: Text('profile.privacy'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Ouvrir la politique de confidentialité
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.description),
-                  title: Text('profile.terms'.tr()),
-                  trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    // TODO: Ouvrir les CGU
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PrivacyPolicyScreen(),
+                      ),
+                    );
                   },
                 ),
                 ListTile(
