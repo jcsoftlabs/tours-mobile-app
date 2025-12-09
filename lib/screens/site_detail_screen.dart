@@ -10,6 +10,7 @@ import '../services/sites_service.dart';
 import '../services/favorites_service.dart';
 import '../services/location_service.dart';
 import '../services/image_service.dart';
+import '../widgets/full_screen_image_gallery.dart';
 
 class SiteDetailScreen extends ConsumerStatefulWidget {
   final String siteId;
@@ -261,69 +262,21 @@ class _SiteDetailScreenState
           itemBuilder: (context, index) {
             final imageUrl = images[index];
             
-            // Vérifier si l'URL est valide
-            if (imageUrl.isEmpty || !Uri.tryParse(imageUrl)!.isAbsolute) {
-              return Container(
-                color: Colors.grey[300],
-                child: const Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.broken_image, size: 64, color: Colors.grey),
-                      SizedBox(height: 8),
-                      Text('Image non disponible', style: TextStyle(color: Colors.grey)),
-                    ],
-                  ),
-                ),
-              );
-            }
-            
-            return CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.cover,
-              placeholder: (context, url) => Container(
-                color: Colors.grey[300],
-                child: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-              errorWidget: (context, url, error) {
-                debugPrint('Erreur chargement image: $url - $error');
-                // Si erreur 404, essayer d'utiliser une image par défaut au lieu d'afficher l'erreur
-                final defaultImages = ImageService.getDefaultSiteImages(_site!);
-                if (defaultImages.isNotEmpty) {
-                  return Image.network(
-                    defaultImages.first,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      color: Colors.grey[300],
-                      child: const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.broken_image, size: 64, color: Colors.grey),
-                            SizedBox(height: 8),
-                            Text('Image non disponible', style: TextStyle(color: Colors.grey)),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }
-                return Container(
-                  color: Colors.grey[300],
-                  child: const Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.broken_image, size: 64, color: Colors.grey),
-                        SizedBox(height: 8),
-                        Text('Image non disponible', style: TextStyle(color: Colors.grey)),
-                      ],
+            return GestureDetector(
+              onTap: () {
+                // Ouvrir la galerie en plein écran
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FullScreenImageGallery(
+                      imageUrls: images,
+                      initialIndex: index,
+                      title: _site!.name,
                     ),
                   ),
                 );
               },
+              child: _buildCarouselImage(imageUrl),
             );
           },
         ),
@@ -371,6 +324,73 @@ class _SiteDetailScreenState
             ),
           ),
       ],
+    );
+  }
+  
+  Widget _buildCarouselImage(String imageUrl) {
+    // Vérifier si l'URL est valide
+    if (imageUrl.isEmpty || !Uri.tryParse(imageUrl)!.isAbsolute) {
+      return Container(
+        color: Colors.grey[300],
+        child: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.broken_image, size: 64, color: Colors.grey),
+              SizedBox(height: 8),
+              Text('Image non disponible', style: TextStyle(color: Colors.grey)),
+            ],
+          ),
+        ),
+      );
+    }
+    
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
+      fit: BoxFit.cover,
+      placeholder: (context, url) => Container(
+        color: Colors.grey[300],
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
+      errorWidget: (context, url, error) {
+        debugPrint('Erreur chargement image: $url - $error');
+        // Si erreur 404, essayer d'utiliser une image par défaut au lieu d'afficher l'erreur
+        final defaultImages = ImageService.getDefaultSiteImages(_site!);
+        if (defaultImages.isNotEmpty) {
+          return Image.network(
+            defaultImages.first,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Container(
+              color: Colors.grey[300],
+              child: const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.broken_image, size: 64, color: Colors.grey),
+                    SizedBox(height: 8),
+                    Text('Image non disponible', style: TextStyle(color: Colors.grey)),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+        return Container(
+          color: Colors.grey[300],
+          child: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.broken_image, size: 64, color: Colors.grey),
+                SizedBox(height: 8),
+                Text('Image non disponible', style: TextStyle(color: Colors.grey)),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
