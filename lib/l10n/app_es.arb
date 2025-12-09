@@ -1,0 +1,23 @@
+{
+  "@@locale": "es",
+  "appTitle": "Touris",
+  "welcome": "Bienvenido",
+  "home": "Inicio",
+  "establishments": "Establecimientos",
+  "sites": "Sitios",
+  "favorites": "Favoritos",
+  "profile": "Perfil",
+  "search": "Buscar",
+  "hotel": "Hotel",
+  "restaurant": "Restaurante",
+  "bar": "Bar",
+  "cafe": "Café",
+  "attraction": "Atracción",
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "email": "Email",
+  "password": "Contraseña",
+  "loading": "Cargando...",
+  "error": "Error",
+  "retry": "Reintentar"
+}

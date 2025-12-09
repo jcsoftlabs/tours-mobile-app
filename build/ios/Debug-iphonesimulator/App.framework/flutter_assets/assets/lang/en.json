@@ -1,0 +1,262 @@
+{
+  "app": {
+    "name": "Touris",
+    "slogan": "Discover the best establishments"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "share": "Share",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "see_all": "See all",
+    "later": "Later"
+  },
+  "navigation": {
+    "home": "Home",
+    "establishments": "Establishments",
+    "sites": "Sites",
+    "favorites": "Favorites",
+    "profile": "Profile"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot password?",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "country": "Country",
+    "country_required": "Country is required",
+    "country_placeholder": "Enter your country",
+    "select_country": "Select your country",
+    "welcome_back": "Welcome back!",
+    "create_account": "Create account",
+    "login_required": "Login required"
+  },
+  "establishments": {
+    "title": "Establishments",
+    "subtitle": "Discover the best establishments",
+    "search_placeholder": "Search establishment...",
+    "no_results": "No establishment found",
+    "loading_error": "Loading error",
+    "try_modify_search": "Try to modify your search criteria",
+    "types": {
+      "all": "All",
+      "hotel": "Hotel",
+      "restaurant": "Restaurant",
+      "bar": "Bar",
+      "cafe": "Café",
+      "attraction": "Attraction",
+      "shop": "Shop",
+      "service": "Service"
+    },
+    "price_range": {
+      "cheap": "Budget",
+      "moderate": "Moderate",
+      "expensive": "Expensive",
+      "very_expensive": "Very expensive"
+    }
+  },
+  "establishment_detail": {
+    "contact": "Contact",
+    "location": "Location",
+    "opening_hours": "Opening hours",
+    "amenities": "Amenities",
+    "description": "Description",
+    "call": "Call",
+    "email": "Send email",
+    "website": "Website",
+    "get_directions": "Get directions",
+    "open_in_maps": "Open in Maps",
+    "add_to_favorites": "Add to favorites",
+    "remove_from_favorites": "Remove from favorites",
+    "share_establishment": "Share this establishment"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "reviews_count": "reviews",
+    "no_reviews": "No reviews yet",
+    "write_review": "Write a review",
+    "your_rating": "Your rating",
+    "your_comment": "Your comment",
+    "comment_placeholder": "Share your experience with other travelers...",
+    "submit": "Submit review",
+    "be_first": "Be the first to write a review",
+    "select_rating": "Please select a rating",
+    "comment_required": "Please write a comment",
+    "comment_min_length": "Comment must be at least 10 characters",
+    "success": "Your review has been published successfully!",
+    "error": "Error creating review",
+    "already_reviewed": "You have already reviewed this establishment",
+    "login_required": "You must be logged in to write a review",
+    "rating_labels": {
+      "1": "Very disappointing",
+      "2": "Disappointing",
+      "3": "Fair",
+      "4": "Very good",
+      "5": "Excellent"
+    },
+    "stats": {
+      "title": "Customer reviews",
+      "average": "Average rating",
+      "total": "reviews total"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "unread": "Unread",
+    "all": "All",
+    "no_notifications": "No notifications",
+    "mark_all_read": "Mark all as read",
+    "delete_notification": "Delete notification",
+    "confirm_delete": "Are you sure you want to delete this notification?",
+    "marked_as_read": "All notifications have been marked as read",
+    "deleted": "Notification deleted",
+    "error_loading": "Error loading notifications",
+    "types": {
+      "review_invitation": "Review invitation",
+      "promotion": "Promotion",
+      "system": "System"
+    }
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "no_favorites": "No favorites yet",
+    "add_some": "You haven't added any establishments to your favorites yet.",
+    "added": "Added to favorites",
+    "removed": "Removed from favorites",
+    "error": "Error updating favorites",
+    "discover": "Discover places",
+    "login_message": "You must be logged in to access your favorites and save your preferred establishments.",
+    "loading_error": "Loading error",
+    "clear_all": "Clear all favorites",
+    "clear_all_confirm": "Do you really want to delete all your favorites ({count} items)?\n\nThis action cannot be undone.",
+    "all_cleared": "All favorites have been deleted",
+    "sort_by": "Sort by",
+    "remove": "Remove",
+    "remove_title": "Remove from favorites",
+    "remove_confirm": "Do you want to remove \"{name}\" from your favorites?",
+    "browse_without_account": "Browse without account",
+    "sort": {
+      "recent": "Most recent first",
+      "name": "Sorted by name",
+      "type": "Sorted by type",
+      "rating": "Sorted by rating"
+    }
+  },
+  "sites": {
+    "title": "Tourist Sites",
+    "search_placeholder": "Search site...",
+    "no_results": "No site found",
+    "categories": {
+      "monument": "Monument",
+      "museum": "Museum",
+      "park": "Park",
+      "beach": "Beach",
+      "mountain": "Mountain",
+      "cultural": "Cultural",
+      "religious": "Religious",
+      "natural": "Natural",
+      "historical": "Historical",
+      "entertainment": "Entertainment"
+    },
+    "entry_fee": "Entry fee",
+    "free": "Free"
+  },
+  "profile": {
+    "title": "Profile",
+    "my_account": "My account",
+    "settings": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "about": "About",
+    "version": "Version",
+    "logout_confirm": "Are you sure you want to logout?",
+    "edit_profile": "Edit profile",
+    "not_logged_in": "Not logged in",
+    "login_message": "Sign in to access all features",
+    "updated": "Profile updated",
+    "full_name": "Full name",
+    "phone": "Phone",
+    "personal_info": "Personal information",
+    "security": "Security and password",
+    "coming_soon": "Feature coming soon",
+    "help": "Help",
+    "help_center": "Help center",
+    "send_feedback": "Send feedback",
+    "contact_us": "Contact us",
+    "legal": "Legal",
+    "terms": "Terms of use"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "select": "Select language",
+      "french": "French",
+      "english": "English",
+      "spanish": "Spanish",
+      "changed": "Language changed successfully"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "enable": "Enable notifications",
+      "reviews": "Review invitations",
+      "promotions": "Promotions"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "promotions": {
+    "title": "Promotions",
+    "no_promotions": "No promotions available",
+    "valid_until": "Valid until",
+    "discount": "off"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "What are you looking for?",
+    "recent": "Recent searches",
+    "popular": "Popular near you",
+    "no_results": "No results found",
+    "filters": "Filters",
+    "sort_by": "Sort by",
+    "distance": "Distance",
+    "rating": "Rating",
+    "price": "Price"
+  },
+  "errors": {
+    "network": "Connection error. Check your internet connection.",
+    "server": "Server error. Please try again later.",
+    "unknown": "An unknown error occurred",
+    "not_found": "Resource not found",
+    "unauthorized": "Unauthorized. Please login.",
+    "validation": "Invalid data"
+  },
+  "time": {
+    "now": "Just now",
+    "minutes_ago": "{count} min ago",
+    "hours_ago": "{count}h ago",
+    "days_ago": "{count} days ago",
+    "yesterday": "Yesterday",
+    "today": "Today"
+  }
+}

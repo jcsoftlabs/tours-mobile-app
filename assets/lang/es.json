@@ -1,0 +1,262 @@
+{
+  "app": {
+    "name": "Touris",
+    "slogan": "Descubre los mejores establecimientos"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "share": "Compartir",
+    "yes": "Sí",
+    "no": "No",
+    "back": "Atrás",
+    "see_all": "Ver todo",
+    "later": "Más tarde"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "establishments": "Establecimientos",
+    "sites": "Sitios",
+    "favorites": "Favoritos",
+    "profile": "Perfil"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "register": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "first_name": "Nombre",
+    "last_name": "Apellido",
+    "country": "País",
+    "country_required": "El país es obligatorio",
+    "country_placeholder": "Ingresa tu país",
+    "select_country": "Selecciona tu país",
+    "welcome_back": "¡Bienvenido de nuevo!",
+    "create_account": "Crear cuenta",
+    "login_required": "Inicio de sesión requerido"
+  },
+  "establishments": {
+    "title": "Establecimientos",
+    "subtitle": "Descubre los mejores establecimientos",
+    "search_placeholder": "Buscar establecimiento...",
+    "no_results": "No se encontraron establecimientos",
+    "loading_error": "Error al cargar",
+    "try_modify_search": "Intenta modificar tus criterios de búsqueda",
+    "types": {
+      "all": "Todos",
+      "hotel": "Hotel",
+      "restaurant": "Restaurante",
+      "bar": "Bar",
+      "cafe": "Café",
+      "attraction": "Atracción",
+      "shop": "Tienda",
+      "service": "Servicio"
+    },
+    "price_range": {
+      "cheap": "Económico",
+      "moderate": "Precio medio",
+      "expensive": "Caro",
+      "very_expensive": "Muy caro"
+    }
+  },
+  "establishment_detail": {
+    "contact": "Contacto",
+    "location": "Ubicación",
+    "opening_hours": "Horario de apertura",
+    "amenities": "Servicios",
+    "description": "Descripción",
+    "call": "Llamar",
+    "email": "Enviar correo",
+    "website": "Sitio web",
+    "get_directions": "Cómo llegar",
+    "open_in_maps": "Abrir en Maps",
+    "add_to_favorites": "Añadir a favoritos",
+    "remove_from_favorites": "Quitar de favoritos",
+    "share_establishment": "Compartir este establecimiento"
+  },
+  "reviews": {
+    "title": "Opiniones",
+    "reviews_count": "opiniones",
+    "no_reviews": "Aún no hay opiniones",
+    "write_review": "Escribir una opinión",
+    "your_rating": "Tu valoración",
+    "your_comment": "Tu comentario",
+    "comment_placeholder": "Comparte tu experiencia con otros viajeros...",
+    "submit": "Publicar opinión",
+    "be_first": "Sé el primero en escribir una opinión",
+    "select_rating": "Por favor selecciona una valoración",
+    "comment_required": "Por favor escribe un comentario",
+    "comment_min_length": "El comentario debe tener al menos 10 caracteres",
+    "success": "¡Tu opinión ha sido publicada con éxito!",
+    "error": "Error al crear la opinión",
+    "already_reviewed": "Ya has opinado sobre este establecimiento",
+    "login_required": "Debes iniciar sesión para escribir una opinión",
+    "rating_labels": {
+      "1": "Muy decepcionante",
+      "2": "Decepcionante",
+      "3": "Aceptable",
+      "4": "Muy bueno",
+      "5": "Excelente"
+    },
+    "stats": {
+      "title": "Opiniones de clientes",
+      "average": "Valoración media",
+      "total": "opiniones en total"
+    }
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "unread": "No leídas",
+    "all": "Todas",
+    "no_notifications": "No hay notificaciones",
+    "mark_all_read": "Marcar todas como leídas",
+    "delete_notification": "Eliminar notificación",
+    "confirm_delete": "¿Estás seguro de que quieres eliminar esta notificación?",
+    "marked_as_read": "Todas las notificaciones han sido marcadas como leídas",
+    "deleted": "Notificación eliminada",
+    "error_loading": "Error al cargar las notificaciones",
+    "types": {
+      "review_invitation": "Invitación a opinar",
+      "promotion": "Promoción",
+      "system": "Sistema"
+    }
+  },
+  "favorites": {
+    "title": "Mis Favoritos",
+    "no_favorites": "Aún no tienes favoritos",
+    "add_some": "Aún no has añadido ningún establecimiento a tus favoritos.",
+    "added": "Añadido a favoritos",
+    "removed": "Eliminado de favoritos",
+    "error": "Error al actualizar favoritos",
+    "discover": "Descubrir lugares",
+    "login_message": "Debes iniciar sesión para acceder a tus favoritos y guardar tus establecimientos preferidos.",
+    "loading_error": "Error al cargar",
+    "clear_all": "Borrar todos los favoritos",
+    "clear_all_confirm": "¿Realmente quieres eliminar todos tus favoritos ({count} elementos)?\n\nEsta acción no se puede deshacer.",
+    "all_cleared": "Todos los favoritos han sido eliminados",
+    "sort_by": "Ordenar por",
+    "remove": "Eliminar",
+    "remove_title": "Quitar de favoritos",
+    "remove_confirm": "¿Quieres eliminar \"{name}\" de tus favoritos?",
+    "browse_without_account": "Navegar sin cuenta",
+    "sort": {
+      "recent": "Más recientes primero",
+      "name": "Ordenado por nombre",
+      "type": "Ordenado por tipo",
+      "rating": "Ordenado por valoración"
+    }
+  },
+  "sites": {
+    "title": "Sitios Turísticos",
+    "search_placeholder": "Buscar sitio...",
+    "no_results": "No se encontraron sitios",
+    "categories": {
+      "monument": "Monumento",
+      "museum": "Museo",
+      "park": "Parque",
+      "beach": "Playa",
+      "mountain": "Montaña",
+      "cultural": "Cultural",
+      "religious": "Religioso",
+      "natural": "Natural",
+      "historical": "Histórico",
+      "entertainment": "Entretenimiento"
+    },
+    "entry_fee": "Precio de entrada",
+    "free": "Gratis"
+  },
+  "profile": {
+    "title": "Perfil",
+    "my_account": "Mi cuenta",
+    "settings": "Configuración",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "privacy": "Privacidad",
+    "about": "Acerca de",
+    "version": "Versión",
+    "logout_confirm": "¿Estás seguro de que quieres cerrar sesión?",
+    "edit_profile": "Editar perfil",
+    "not_logged_in": "No conectado",
+    "login_message": "Inicia sesión para acceder a todas las funciones",
+    "updated": "Perfil actualizado",
+    "full_name": "Nombre completo",
+    "phone": "Teléfono",
+    "personal_info": "Información personal",
+    "security": "Seguridad y contraseña",
+    "coming_soon": "Función próximamente",
+    "help": "Ayuda",
+    "help_center": "Centro de ayuda",
+    "send_feedback": "Enviar comentarios",
+    "contact_us": "Contáctanos",
+    "legal": "Legal",
+    "terms": "Términos de uso"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": {
+      "title": "Idioma",
+      "select": "Seleccionar idioma",
+      "french": "Francés",
+      "english": "Inglés",
+      "spanish": "Español",
+      "changed": "Idioma cambiado con éxito"
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "enable": "Activar notificaciones",
+      "reviews": "Invitaciones a opinar",
+      "promotions": "Promociones"
+    },
+    "appearance": {
+      "title": "Apariencia",
+      "theme": "Tema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    }
+  },
+  "promotions": {
+    "title": "Promociones",
+    "no_promotions": "No hay promociones disponibles",
+    "valid_until": "Válido hasta",
+    "discount": "de descuento"
+  },
+  "search": {
+    "title": "Buscar",
+    "placeholder": "¿Qué estás buscando?",
+    "recent": "Búsquedas recientes",
+    "popular": "Populares cerca de ti",
+    "no_results": "No se encontraron resultados",
+    "filters": "Filtros",
+    "sort_by": "Ordenar por",
+    "distance": "Distancia",
+    "rating": "Valoración",
+    "price": "Precio"
+  },
+  "errors": {
+    "network": "Error de conexión. Verifica tu conexión a internet.",
+    "server": "Error del servidor. Por favor, inténtalo de nuevo más tarde.",
+    "unknown": "Se ha producido un error desconocido",
+    "not_found": "Recurso no encontrado",
+    "unauthorized": "No autorizado. Por favor, inicia sesión.",
+    "validation": "Datos inválidos"
+  },
+  "time": {
+    "now": "Ahora mismo",
+    "minutes_ago": "Hace {count} min",
+    "hours_ago": "Hace {count}h",
+    "days_ago": "Hace {count} días",
+    "yesterday": "Ayer",
+    "today": "Hoy"
+  }
+}

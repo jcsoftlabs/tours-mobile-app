@@ -1,0 +1,262 @@
+{
+  "app": {
+    "name": "Touris",
+    "slogan": "Découvrez les meilleurs établissements"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "share": "Partager",
+    "yes": "Oui",
+    "no": "Non",
+    "back": "Retour",
+    "see_all": "Voir tout",
+    "later": "Plus tard"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "establishments": "Établissements",
+    "sites": "Sites",
+    "favorites": "Favoris",
+    "profile": "Profil"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe",
+    "forgot_password": "Mot de passe oublié ?",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "country": "Pays",
+    "country_required": "Le pays est obligatoire",
+    "country_placeholder": "Entrez votre pays",
+    "select_country": "Sélectionnez votre pays",
+    "welcome_back": "Bon retour !",
+    "create_account": "Créer un compte",
+    "login_required": "Connexion requise"
+  },
+  "establishments": {
+    "title": "Établissements",
+    "subtitle": "Découvrez les meilleurs établissements",
+    "search_placeholder": "Rechercher un établissement...",
+    "no_results": "Aucun établissement trouvé",
+    "loading_error": "Erreur de chargement",
+    "try_modify_search": "Essayez de modifier vos critères de recherche",
+    "types": {
+      "all": "Toutes",
+      "hotel": "Hôtel",
+      "restaurant": "Restaurant",
+      "bar": "Bar",
+      "cafe": "Café",
+      "attraction": "Attraction",
+      "shop": "Boutique",
+      "service": "Service"
+    },
+    "price_range": {
+      "cheap": "Bon marché",
+      "moderate": "Prix moyen",
+      "expensive": "Cher",
+      "very_expensive": "Très cher"
+    }
+  },
+  "establishment_detail": {
+    "contact": "Contact",
+    "location": "Localisation",
+    "opening_hours": "Horaires d'ouverture",
+    "amenities": "Équipements",
+    "description": "Description",
+    "call": "Appeler",
+    "email": "Envoyer un email",
+    "website": "Site web",
+    "get_directions": "Y aller",
+    "open_in_maps": "Ouvrir dans Maps",
+    "add_to_favorites": "Ajouter aux favoris",
+    "remove_from_favorites": "Retirer des favoris",
+    "share_establishment": "Partager cet établissement"
+  },
+  "reviews": {
+    "title": "Avis",
+    "reviews_count": "avis",
+    "no_reviews": "Aucun avis pour le moment",
+    "write_review": "Laisser un avis",
+    "your_rating": "Votre note",
+    "your_comment": "Votre commentaire",
+    "comment_placeholder": "Partagez votre expérience avec d'autres voyageurs...",
+    "submit": "Publier mon avis",
+    "be_first": "Soyez le premier à laisser un avis",
+    "select_rating": "Veuillez sélectionner une note",
+    "comment_required": "Veuillez écrire un commentaire",
+    "comment_min_length": "Le commentaire doit contenir au moins 10 caractères",
+    "success": "Votre avis a été publié avec succès !",
+    "error": "Erreur lors de la création de l'avis",
+    "already_reviewed": "Vous avez déjà laissé un avis pour cet établissement",
+    "login_required": "Vous devez être connecté pour laisser un avis",
+    "rating_labels": {
+      "1": "Très décevant",
+      "2": "Décevant",
+      "3": "Correct",
+      "4": "Très bien",
+      "5": "Excellent"
+    },
+    "stats": {
+      "title": "Avis des clients",
+      "average": "Note moyenne",
+      "total": "avis au total"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "unread": "Non lues",
+    "all": "Toutes",
+    "no_notifications": "Aucune notification",
+    "mark_all_read": "Tout marquer comme lu",
+    "delete_notification": "Supprimer la notification",
+    "confirm_delete": "Êtes-vous sûr de vouloir supprimer cette notification ?",
+    "marked_as_read": "Toutes les notifications ont été marquées comme lues",
+    "deleted": "Notification supprimée",
+    "error_loading": "Erreur lors du chargement des notifications",
+    "types": {
+      "review_invitation": "Invitation à laisser un avis",
+      "promotion": "Promotion",
+      "system": "Système"
+    }
+  },
+  "favorites": {
+    "title": "Mes Favoris",
+    "no_favorites": "Aucun favori pour le moment",
+    "add_some": "Vous n'avez pas encore ajouté d'établissements à vos favoris.",
+    "added": "Ajouté aux favoris",
+    "removed": "Retiré des favoris",
+    "error": "Erreur lors de la modification des favoris",
+    "discover": "Découvrir des lieux",
+    "login_message": "Vous devez être connecté pour accéder à vos favoris et sauvegarder vos établissements préférés.",
+    "loading_error": "Erreur de chargement",
+    "clear_all": "Effacer tous les favoris",
+    "clear_all_confirm": "Voulez-vous vraiment supprimer tous vos favoris ({count} éléments) ?\n\nCette action ne peut pas être annulée.",
+    "all_cleared": "Tous les favoris ont été supprimés",
+    "sort_by": "Trier par",
+    "remove": "Retirer",
+    "remove_title": "Retirer des favoris",
+    "remove_confirm": "Voulez-vous retirer \"{name}\" de vos favoris ?",
+    "browse_without_account": "Parcourir sans compte",
+    "sort": {
+      "recent": "Plus récents d'abord",
+      "name": "Trié par nom",
+      "type": "Trié par type",
+      "rating": "Trié par note"
+    }
+  },
+  "sites": {
+    "title": "Sites Touristiques",
+    "search_placeholder": "Rechercher un site...",
+    "no_results": "Aucun site trouvé",
+    "categories": {
+      "monument": "Monument",
+      "museum": "Musée",
+      "park": "Parc",
+      "beach": "Plage",
+      "mountain": "Montagne",
+      "cultural": "Culturel",
+      "religious": "Religieux",
+      "natural": "Naturel",
+      "historical": "Historique",
+      "entertainment": "Divertissement"
+    },
+    "entry_fee": "Tarif d'entrée",
+    "free": "Gratuit"
+  },
+  "profile": {
+    "title": "Profil",
+    "my_account": "Mon compte",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "notifications": "Notifications",
+    "privacy": "Confidentialité",
+    "about": "À propos",
+    "version": "Version",
+    "logout_confirm": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "edit_profile": "Modifier le profil",
+    "not_logged_in": "Non connecté",
+    "login_message": "Connectez-vous pour accéder à toutes les fonctionnalités",
+    "updated": "Profil mis à jour",
+    "full_name": "Nom complet",
+    "phone": "Téléphone",
+    "personal_info": "Informations personnelles",
+    "security": "Sécurité et mot de passe",
+    "coming_soon": "Fonctionnalité bientôt disponible",
+    "help": "Assistance",
+    "help_center": "Centre d'aide",
+    "send_feedback": "Envoyer des commentaires",
+    "contact_us": "Nous contacter",
+    "legal": "Légal",
+    "terms": "Conditions d'utilisation"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": {
+      "title": "Langue",
+      "select": "Sélectionner une langue",
+      "french": "Français",
+      "english": "Anglais",
+      "spanish": "Espagnol",
+      "changed": "Langue changée avec succès"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "enable": "Activer les notifications",
+      "reviews": "Invitations aux avis",
+      "promotions": "Promotions"
+    },
+    "appearance": {
+      "title": "Apparence",
+      "theme": "Thème",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    }
+  },
+  "promotions": {
+    "title": "Promotions",
+    "no_promotions": "Aucune promotion disponible",
+    "valid_until": "Valide jusqu'au",
+    "discount": "de réduction"
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Que recherchez-vous ?",
+    "recent": "Recherches récentes",
+    "popular": "Populaires près de vous",
+    "no_results": "Aucun résultat trouvé",
+    "filters": "Filtres",
+    "sort_by": "Trier par",
+    "distance": "Distance",
+    "rating": "Note",
+    "price": "Prix"
+  },
+  "errors": {
+    "network": "Erreur de connexion. Vérifiez votre connexion internet.",
+    "server": "Erreur serveur. Veuillez réessayer plus tard.",
+    "unknown": "Une erreur inconnue s'est produite",
+    "not_found": "Ressource non trouvée",
+    "unauthorized": "Non autorisé. Veuillez vous connecter.",
+    "validation": "Données invalides"
+  },
+  "time": {
+    "now": "À l'instant",
+    "minutes_ago": "Il y a {count} min",
+    "hours_ago": "Il y a {count}h",
+    "days_ago": "Il y a {count} jours",
+    "yesterday": "Hier",
+    "today": "Aujourd'hui"
+  }
+}

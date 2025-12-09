@@ -1,0 +1,83 @@
+{
+  "@@locale": "en",
+  "appTitle": "Touris",
+  "@appTitle": {
+    "description": "Title of the application"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home screen title"
+  },
+  "establishments": "Establishments",
+  "@establishments": {
+    "description": "Establishments screen title"
+  },
+  "sites": "Sites",
+  "@sites": {
+    "description": "Tourist sites screen title"
+  },
+  "favorites": "Favorites",
+  "@favorites": {
+    "description": "Favorites screen title"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile screen title"
+  },
+  "search": "Search",
+  "@search": {
+    "description": "Search placeholder"
+  },
+  "hotel": "Hotel",
+  "@hotel": {
+    "description": "Hotel establishment type"
+  },
+  "restaurant": "Restaurant",
+  "@restaurant": {
+    "description": "Restaurant establishment type"
+  },
+  "bar": "Bar",
+  "@bar": {
+    "description": "Bar establishment type"
+  },
+  "cafe": "Café",
+  "@cafe": {
+    "description": "Café establishment type"
+  },
+  "attraction": "Attraction",
+  "@attraction": {
+    "description": "Attraction establishment type"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register button text"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading message"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error message"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  }
+}

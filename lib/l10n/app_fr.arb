@@ -1,0 +1,23 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Touris",
+  "welcome": "Bienvenue",
+  "home": "Accueil",
+  "establishments": "Établissements",
+  "sites": "Sites",
+  "favorites": "Favoris",
+  "profile": "Profil",
+  "search": "Rechercher",
+  "hotel": "Hôtel",
+  "restaurant": "Restaurant",
+  "bar": "Bar",
+  "cafe": "Café",
+  "attraction": "Attraction",
+  "login": "Se connecter",
+  "register": "S'inscrire",
+  "email": "Email",
+  "password": "Mot de passe",
+  "loading": "Chargement...",
+  "error": "Erreur",
+  "retry": "Réessayer"
+}

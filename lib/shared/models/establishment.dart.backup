@@ -1,0 +1,88 @@
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'establishment.g.dart';
+
+@JsonSerializable()
+class Establishment extends Equatable {
+  final String id;
+  final String name;
+  final String? description;
+  final String type;
+  final double price;
+  final List<String>? images;
+  final String? address;
+  final String? phone;
+  final String? email;
+  final String? website;
+  final double? latitude;
+  final double? longitude;
+  final Map<String, dynamic>? amenities;
+  final bool isActive;
+  final String partnerId;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  const Establishment({
+    required this.id,
+    required this.name,
+    this.description,
+    required this.type,
+    required this.price,
+    this.images,
+    this.address,
+    this.phone,
+    this.email,
+    this.website,
+    this.latitude,
+    this.longitude,
+    this.amenities,
+    required this.isActive,
+    required this.partnerId,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory Establishment.fromJson(Map<String, dynamic> json) =>
+      _$EstablishmentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EstablishmentToJson(this);
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        description,
+        type,
+        price,
+        images,
+        address,
+        phone,
+        email,
+        website,
+        latitude,
+        longitude,
+        amenities,
+        isActive,
+        partnerId,
+        createdAt,
+        updatedAt,
+      ];
+}
+
+enum EstablishmentType {
+  @JsonValue('HOTEL')
+  hotel,
+  @JsonValue('RESTAURANT')
+  restaurant,
+  @JsonValue('BAR')
+  bar,
+  @JsonValue('CAFE')
+  cafe,
+  @JsonValue('ATTRACTION')
+  attraction,
+  @JsonValue('SHOP')
+  shop,
+  @JsonValue('SERVICE')
+  service,
+}
